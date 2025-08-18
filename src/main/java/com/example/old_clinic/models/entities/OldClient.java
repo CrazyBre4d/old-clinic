@@ -1,5 +1,6 @@
 package com.example.old_clinic.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -9,6 +10,8 @@ import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Getter
@@ -39,5 +42,9 @@ public class OldClient {
 
     @Column(name = "created_datetime")
     private LocalDateTime createdDatetime;
+
+    @OneToMany(mappedBy = "oldClient")
+    @JsonManagedReference
+    private Set<OldNote> oldNotes = new LinkedHashSet<>();
 
 }

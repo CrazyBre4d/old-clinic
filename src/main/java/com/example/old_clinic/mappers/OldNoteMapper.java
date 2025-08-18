@@ -3,10 +3,12 @@ package com.example.old_clinic.mappers;
 import com.example.old_clinic.models.dtos.OldNoteDto;
 import com.example.old_clinic.models.entities.OldNote;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface OldNoteMapper {
+    @Mapping(target = "oldClient", ignore = true)
     OldNoteDto toOldNoteDto(OldNote oldNote);
 }

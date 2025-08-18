@@ -1,5 +1,6 @@
 package com.example.old_clinic.models.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
@@ -18,8 +19,10 @@ public class OldNote {
     @Column(name = "guid")
     private UUID guid;
 
-    @Column(name = "client_guid")
-    private UUID clientGuid;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_guid")
+    @JsonBackReference
+    private OldClient oldClient;
 
     @Column(name = "comments", length = Integer.MAX_VALUE)
     private String comments;
@@ -31,7 +34,7 @@ public class OldNote {
     private LocalDateTime createdDatetime;
 
     @Column(name = "note_datetime")
-    private Instant noteDatetime;
+    private LocalDateTime noteDatetime;
 
     @Column(name = "logged_user")
     private String loggedUser;
