@@ -22,5 +22,4 @@ public class OldClientDto {
     private String status;
     private LocalDate dob;
     private LocalDateTime createdDateTime;
-    private Set<OldNoteDto> oldNotes;
 }

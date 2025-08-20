@@ -14,9 +14,9 @@ import java.util.UUID;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class OldNoteDto {
 
-    private UUID guid;
-
     private String comments;
+
+    private UUID guid;
 
     private LocalDateTime modifiedDateTime;
 
