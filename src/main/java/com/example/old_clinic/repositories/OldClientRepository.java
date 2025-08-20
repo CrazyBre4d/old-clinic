@@ -13,10 +13,9 @@ import java.util.UUID;
 
 @Repository
 public interface OldClientRepository extends JpaRepository<OldClient, Long>, JpaSpecificationExecutor<OldClient> {
-    List<OldClient> findByGuidAndAgencyAndOldNotes_CreatedDatetimeBetween(@Nullable UUID guid, @Nullable String agency, @Nullable LocalDateTime createdDatetimeStart, @Nullable LocalDateTime createdDatetimeEnd);
 
     @Query("""
             select o from OldClient o inner join o.oldNotes oldNotes
-            where o.agency = ?1 and o.guid = ?2 and oldNotes.createdDatetime between ?3 and ?4""")
+            where o.agency = ?1 and o.guid = ?2 and oldNotes.createdDateTime between ?3 and ?4""")
     List<OldClient> findAll(@Nullable String agency, @Nullable UUID guid, @Nullable LocalDateTime createdDatetimeStart, @Nullable LocalDateTime createdDatetimeEnd);
 }
