@@ -9,6 +9,5 @@ import org.mapstruct.ReportingPolicy;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
 public interface OldNoteMapper {
-    @Mapping(target = "oldClient", ignore = true)
     OldNoteDto toOldNoteDto(OldNote oldNote);
 }

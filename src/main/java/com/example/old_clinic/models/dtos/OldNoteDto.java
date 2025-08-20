@@ -13,9 +13,8 @@ import java.util.UUID;
 @Builder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public class OldNoteDto {
-    private UUID guid;
 
-    private OldClient oldClient;
+    private UUID guid;
 
     private String comments;
 
