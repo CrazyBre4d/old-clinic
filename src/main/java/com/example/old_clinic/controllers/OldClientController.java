@@ -24,12 +24,11 @@ import java.util.List;
 public class OldClientController {
 
     private final OldClientService oldClientService;
-
     private final OldClientMapper oldClientMapper;
     private final OldNoteMapper oldNoteMapper;
 
     @PostMapping("/clients")
-    public ResponseEntity<List<OldClientDto>> findAll(@Nullable @RequestParam(required = false) @Valid Specification<OldClient> spec, Pageable pageable) {
+    public ResponseEntity<List<OldClientDto>> findAll() {
         List<OldClient> oldClients = oldClientService.findAll();
         return ResponseEntity.ok(oldClientMapper.toOldClientDtoList(oldClients));
     }
